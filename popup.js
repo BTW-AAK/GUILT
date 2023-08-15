@@ -6,36 +6,45 @@
 
 
 
+const express = require("express");
+const rl = require("readline-sync");
+var { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
+var { GoogleAuth } = require("google-auth-library");
+
+const MODEL_NAME = "models/text-bison-001";
+
+const client = new TextServiceClient({
+  authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
+});
+
+var inputtext = rl.question()
+console.log(`Input: ${inputtext}`);
 
 
-
-// var { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
-// var { GoogleAuth } = require("google-auth-library");
-
-// const MODEL_NAME = "models/text-bison-001";
-
-// const client = new TextServiceClient({
-//   authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
-// });
-
-//     const prompt = "If the sentence has non inclusive replace it with inclusive terminology. Only replace the non inclusive word. The sentence is: " + ;
+    const AIprompt = "If the sentence has non inclusive replace it with inclusive terminology. Only replace the non inclusive word. The sentence is: " + inputtext;
 
 
-//     client
-//       .generateText({
-//         model: MODEL_NAME,
-//         prompt: {
-//           text: prompt,
-//         },
-//       })
-//       .then((result) => {
-//         const generatedOutput = result[0]?.candidates[0]?.output;
-//         outputText.textContent = generatedOutput;
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//         outputText.textContent = "An error occurred.";
-//       });
+    client
+      .generateText({
+        model: MODEL_NAME,
+        prompt: {
+          text: AIprompt,
+        },
+      })
+      .then((result) => {
+        const generatedOutput = result[0]?.candidates[0]?.output;
+        // outputText.textContent = generatedOutput;
+                                console.log(`output: ${generatedOutput}`);
+                                var app = express();
+                                app.get('/', function (req, res) {
+                                res.send(generatedOutput);
+                                });
+                                app.listen(5000);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        outputText.textContent = "An error occurred.";
+      });
 
 
 
@@ -48,8 +57,11 @@
 
   
 
-  
+  //!Test
     
+
+
+  
 //     chromeExtension.sendMessage(extensionId, message);
     
 
@@ -61,27 +73,23 @@
 
 //     });
 
-//! PALM API GITHUB VERSION
-    // async function processWithPaLm() {
-    //   // let bot = new PaLM(process.env.API_KEY,{fetch:fetch,});
-    //   // bot.ask("In this sentence, If there is a non inclusive word replace it with inclusive terminology. Only replace the non inclusive word: " + inputTextBox.value, {
-    //   //   context: "You are an inclusive language helper",
-    //   //   temperature: 0.5,
-    //   //   format: PaLM.FORMATS.JSON
+// // ! PALM API GITHUB VERSION
+//     async function processWithPaLm() {
+//       let bot = new PaLM(process.env.API_KEY,{fetch:fetch,});
+//       bot.ask("In this sentence, If there is a non inclusive word replace it with inclusive terminology. Only replace the non inclusive word: " + , {
+//         context: "You are an inclusive language helper",
+//         temperature: 0.5,
+//         format: PaLM.FORMATS.JSON
         
-    //   //   });
-    //   //   console.log(bot.response);
-    //   //   processedText = bot.response;
-    //   //   return processedText
-
-
-
-    //   }
+//         });
+//         console.log(bot.response);
+//         processedText = bot.response;
+//         return processedText
+//       }
   
 //! POST DATA NODE.js TUTORIAL
     // const readline = require("readline-sync");
-    // const express = require("express");
-    // const app = express();
+
     // app.use(express.urlencoded());
     // app.get('/',function(request, response, next){
     
