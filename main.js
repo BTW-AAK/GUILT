@@ -1,19 +1,22 @@
-
-
-
 const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
 const { read } = require("fs");
 const { GoogleAuth } = require("google-auth-library");
-const readline = require('readline');
+// const readline = require('readline');
 const MODEL_NAME = "models/text-bison-001";
 
 const client = new TextServiceClient({
   authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
 });
-var input = f
+// var input = prompt("Please enter your phrase");
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+console.log("Please enter your phrase...")
 
+readline.question('', input => {
 
-const prompt = "If the sentence has non inclusive replace it with inclusive terminology. Only replace the non inclusive word. If not sentence given dont answer. The sentence is: " + input;
+const prompt = "Only if the sentences has non inclusive language replace it with inclusive terminology. Only replace the non inclusive word. Such as physically handicaped members. => differently abled members. The sentence is: " + input;
 
 client
   .generateText({
@@ -26,3 +29,5 @@ client
     console.log(result[0]?.candidates[0]?.output);
     finaltext = result[0]?.candidates[0]?.output;
   });
+  readline.close();
+});

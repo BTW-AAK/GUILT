@@ -1,10 +1,3 @@
-// // popup.js
-
-
-
-
-
-
 
 const express = require("express");
 const rl = require("readline-sync");
@@ -12,6 +5,26 @@ var { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
 var { GoogleAuth } = require("google-auth-library");
 
 const MODEL_NAME = "models/text-bison-001";
+var app = express();
+app.use(express.urlencoded());
+app.get('/',function(request, response, next){
+
+  response.send(`
+<div>
+  <form method="POST" action="/"> 
+  <label> First Name </label>
+  <input type="text" name="first_name" id="first_ name"/>
+
+  <input type="text" name="last_name" id="last_ name"/>
+<br>
+<input type="submit" id="submit_name" value="Submit"/>
+  </form>
+  </div>
+  `);
+
+})
+
+
 
 const client = new TextServiceClient({
   authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
@@ -35,7 +48,7 @@ console.log(`Input: ${inputtext}`);
         const generatedOutput = result[0]?.candidates[0]?.output;
         // outputText.textContent = generatedOutput;
                                 console.log(`output: ${generatedOutput}`);
-                                var app = express();
+                                
                                 app.get('/', function (req, res) {
                                 res.send(generatedOutput);
                                 });
@@ -47,6 +60,7 @@ console.log(`Input: ${inputtext}`);
       });
 
 
+    
 
 
 
@@ -90,33 +104,15 @@ console.log(`Input: ${inputtext}`);
 //! POST DATA NODE.js TUTORIAL
     // const readline = require("readline-sync");
 
-    // app.use(express.urlencoded());
-    // app.get('/',function(request, response, next){
-    
-    //   response.send(`
-    // <div>
-    //   <form method="POST" action="/"> 
-    //   <label> First Name </label>
-    //   <input type="text" name="first_name" id="first_ name"/>
-    
-    //   <input type="text" name="last_name" id="last_ name"/>
-    // <br>
-    // <input type="submit" id="submit_name" value="Submit"/>
-    //   </form>
-    //   </div>
-    //   `);
-    
-    // })
-    
-    // app.post('/', function(request,response, next){
-    
-    // response.send(request.body);
-    
-    
-    // });
-    
-    // app.listen(2000);
+ 
+
     
 
   
-  
+      //   app.post('/', function(request,response, next){
+    
+    //     response.send(request.body);
+
+    //     });
+        
+    //     app.listen(2000);
