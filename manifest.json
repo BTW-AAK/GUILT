@@ -1,35 +1,13 @@
 {
   "manifest_version": 3,
   "name": "PaLm Extension",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An extension that uses the PaLm API for processing input.",
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
-  "browser_action": {
+  "background":{
+      "service_worker": "background.js"
+  },
+  "action": {
     "default_popup": "popup.html"
-  },
-  "icons": {
-    "48": "icon.png"
-  },
-    "web_accessible_resources": ["chrome-extension://kgobeoibakoahbfnlficpmibdbkdchap/gDocScript.bundle.js",{
-      "resources": [
-        "*.html",
-        "*.css",
-        "*.js",
-        
-        "default_icon.png"
-      ],
-      "matches": ["<all_urls>"],
-      "content_scripts": [
-        {
-          "matches": ["<all_urls>"],
-          "js": ["contentScript.js"]
-        }
-      ]
-    }]
-    
   }
-  
-
+}
+ 
