@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AI Text Generator</title>
-  <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" " href="popup.css">
 </head>
 <body>
   <div class="container">
-    <h1>AI Text Generator</h1>
-    <textarea id="inputTextBox" rows="4" cols="50" placeholder="Enter text..."></textarea>
+    <div id="left-container">
+      <img id="sidebarimage" src="sidebar.png" alt="" srcset="">
+    </div>
+    <textarea id="inputTextBox" rows="10" cols="65" placeholder="Enter text..."></textarea>
+    <br>
     <button id="generateButton">Generate</button>
-    <div id="outputText"></div>
+    <span id="outputText"></span>
   </div>
   <script type="module"  src="popup.js"></script>
 </body>

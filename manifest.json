@@ -1,13 +1,12 @@
 {
   "manifest_version": 3,
   "name": "PaLm Extension",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An extension that uses the PaLm API for processing input.",
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
-  "browser_action": {
+  "background":{
+      "service_worker": "background.js"
+  },
+  "action": {
     "default_popup": "popup.html"
   }
     }
