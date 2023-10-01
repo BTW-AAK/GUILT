@@ -13,10 +13,10 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 console.log("Please enter your phrase...")
-
+var tone = "Formal";
 readline.question('', input => {
 
-const prompt = "Only if the sentences has non inclusive language replace it with inclusive terminology. Only replace the non inclusive word. Such as physically handicaped members. => differently abled members. The sentence is: " + input;
+const prompt = "Only if the sentences has non inclusive language replace it with inclusive terminology with the tone"+ tone +"Only replace the non inclusive word. Such as physically handicaped members. => differently abled members. The sentence is: " + input;
 
 client
   .generateText({
