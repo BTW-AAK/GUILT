@@ -1,13 +1,22 @@
 {
   "manifest_version": 3,
   "name": "PaLm Extension",
-  "version": "0.1.5",
+  "version": "0.1.6",
+  "permissions": [
+    "https://cdn.jsdelivr.net/npm/brython@3/brython.min.js",
+    "https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"
+],
   "description": "An extension that uses the PaLm API for processing input.",
   "background":{
   },
   "action": {
     "default_popup": "onboardingPage.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "sandbox": "script-src 'self' 'unsafe-eval'; object-src 'self'"
   }
+
     }
     
   

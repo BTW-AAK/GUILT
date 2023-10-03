@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" " href="popup.css">
+  <link rel="stylesheet" href="popup.css">
+  <script type="text/javascript" src="brython/brython.js"></script>
+  <script type="text/javascript" src="brython/brython_stdlib.js"></script>
+  <script type="text/python">
+    print('ok')
+</script>
 </head>
 <body>
   <div class="container" id="popup-container">
       <div id="left-container">
         <img id="sidebarimage" src="sidebar.svg" alt="" srcset="">
       </div>
+    
   <div id="tonediv">
     <select name="Tone Selector" id="toneselect">
   <option value="Formal">Formal</option>
   <option value="Encouraging">Encouraging</option>
   <option value="Friendly">Friendly</option>
   <option value="Direct">Direct</option>
-
     </select>
   </div>
   <textarea id="inputTextBox" rows="4" cols="50" placeholder="Enter text..."></textarea>
       <button id="generateButton">Generate</button> 
-
   </div>
   <div class="container" id="output-container" hidden>
     <div id="top-container">
@@ -38,6 +42,6 @@
 
   </div>
   <!-- <script type="module"  src="popup.js"></script> -->
-  <script src="bundle.js"></script>
+  <script src="popup.js"></script>
 </body>
 </html>

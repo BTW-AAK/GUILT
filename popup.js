@@ -6,14 +6,14 @@ var ccButton = document.querySelector('#ccButton');
 if (generateButton){
 
   
-  const { TextServiceClient } =
-  require("@google-ai/generativelanguage").v1beta2;
-const { GoogleAuth } = require("google-auth-library");
-const MODEL_NAME = "models/text-bison-001";
+//   const { TextServiceClient } =
+//   require("@google-ai/generativelanguage").v1beta2;
+// const { GoogleAuth } = require("google-auth-library");
+// const MODEL_NAME = "models/text-bison-001";
 
-  const client = new TextServiceClient({
-    authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
-  });
+//   const client = new TextServiceClient({
+//     authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
+//   });
 
 
 console.log(generateButton)
@@ -26,22 +26,22 @@ generateButton.addEventListener('click', function(event) {
 popupContainer.remove();
 outputContainer.removeAttribute("hidden");
 
-const prompt = "Only if the sentences has non inclusive language replace it with inclusive terminology with the tone"+ tone +"Only replace the non inclusive word. Such as physically handicaped members. => differently abled members. The sentence is: " + input;
+// const prompt = "Only if the sentences has non inclusive language replace it with inclusive terminology with the tone"+ tone +"Only replace the non inclusive word. Such as physically handicaped members. => differently abled members. The sentence is: " + input;
 
-client.generateText({
-    model: MODEL_NAME,
-    prompt: {
-      text: prompt,
-    },
-  })
-  .then(result => {
-  console.log(JSON.stringify(result, null, 2));
+// client.generateText({
+//     model: MODEL_NAME,
+//     prompt: {
+//       text: prompt,
+//     },
+//   })
+//   .then(result => {
+//   console.log(JSON.stringify(result, null, 2));
   document.getElementById("outputText").innerHTML = "loading..."
-  document.getElementById("outputText").innerHTML = JSON.stringify(result, null, 2);
+  // document.getElementById("outputText").innerHTML = JSON.stringify(result, null, 2);
 
 
   
-});
+// });
 
 
 });
