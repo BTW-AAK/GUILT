@@ -1,5 +1,4 @@
 
-
 var generateButton = document.querySelector('#generateButton');
 var popupContainer = document.querySelector('#popup-container');
 var outputContainer = document.querySelector('#output-container');
@@ -7,11 +6,11 @@ var ccButton = document.querySelector('#ccButton');
 if (generateButton){
 
   
-  const { TextServiceClient } = require("@google-ai/generativelanguage/").v1beta2;
-  const { read } = ("fs");
-  const { GoogleAuth } = ("google-auth-library");
-  const MODEL_NAME = "models/text-bison-001";
-  
+  const { TextServiceClient } =
+  require("@google-ai/generativelanguage").v1beta2;
+const { GoogleAuth } = require("google-auth-library");
+const MODEL_NAME = "models/text-bison-001";
+
   const client = new TextServiceClient({
     authClient: new GoogleAuth().fromAPIKey("AIzaSyDHt49ArGg0gQZWevD3zNzOBQzKtcOTHmM"),
   });
@@ -22,7 +21,8 @@ console.log(generateButton)
 // chrome.tabs.query({active: true, currentWindow: true}  
 generateButton.addEventListener('click', function(event) {
   var input = document.getElementById("inputTextBox").value;
-  console.log(popupContainer)  
+  var tone = document.getElementById("toneselect").value;
+  console.log(toneselect)
 popupContainer.remove();
 outputContainer.removeAttribute("hidden");
 
