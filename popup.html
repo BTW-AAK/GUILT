@@ -2,14 +2,26 @@
 <html>
 <head>
   <link rel="stylesheet" href="popup.css">
-  <script type="text/javascript" src="brython/brython.js"></script>
-  <script type="text/javascript" src="brython/brython_stdlib.js"></script>
-  <script type="text/python">
-    print('ok')
-</script>
 </head>
 <body>
-  <div class="container" id="popup-container">
+  <div class="container" id="login-container">
+    <div id="top-container">
+      <img id="topbarimg" src="header2svg.svg" alt="" srcset="">
+    </div>
+    <h2>Login</h2>
+    <div id="innerlogincontainer">
+<input class="loginInput" type="email" id="email">
+<br>
+<br>
+<input class="loginInput" type="password" name="password" id="password">
+      <div id="ccButtonDiv">
+        <button id="loginButton" class="button">Login</button> 
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="container" id="popup-container" hidden>
       <div id="left-container">
         <img id="sidebarimage" src="sidebar.svg" alt="" srcset="">
       </div>
@@ -35,12 +47,13 @@
 <span id="outputText">Loading...</span>
 
     </div>
-<div id="ccButtonDiv">
+<div id="ccButtonDiv" class="button">
   <button id="ccButton">Copy & Close</button> 
 </div>
-
-
   </div>
+
+  
+
   <!-- <script type="module"  src="popup.js"></script> -->
   <script src="popup.js"></script>
 </body>
