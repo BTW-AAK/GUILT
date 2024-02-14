@@ -24,4 +24,4 @@ Note: You need to select the folder in which the manifest file exists.
 
 ## Authors
 
-* **Adit K** - *Initial work* - [PurpleBooth](https://github.com/BTW-AAK)
+* **Adit K** - [*Other work*](https://github.com/BTW-AAK)
