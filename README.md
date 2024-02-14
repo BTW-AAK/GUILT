@@ -17,7 +17,7 @@ pip install -r requirements.txt
 2) Select Extensions.
 3) Enable developer mode
 4) Click on Load Unpacked
-5)  select your Unzip folder.
+5)  select your Unzipped folder.
 
 Note: You need to select the folder in which the manifest file exists. 
 
